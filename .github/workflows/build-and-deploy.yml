@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/todo-app
+  IMAGE_NAME: satymsingh01/todo-devops-demo/todo-app
 
 jobs:
   build:
