@@ -54,17 +54,17 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Update values.yaml with new image tag
-        env:
-          NEW_IMAGE_TAG: ${{ steps.meta.outputs.tags }}
         run: |
-          # Extract just the tag (last part after :)
-          TAG=$(echo $NEW_IMAGE_TAG | cut -d: -f2)
-          echo "New tag: $TAG"
+          FULL_TAG="${{ steps.meta.outputs.tags }}"
+          echo "Full tag: $FULL_TAG"
           
-          # Update values.yaml
-          sed -i "s|image:|image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}|g" todo-chart/values.yaml
-          sed -i "s|tag: .*|tag: $TAG|g" todo-chart/values.yaml
+          TAG=$(echo "$FULL_TAG" | rev | cut -d: -f1 | rev)
+          echo "Extracted tag: $TAG"
           
+          sed -i.bak "s|repository:.*|repository: ghcr.io/${{ github.repository }}/todo-app|" todo-chart/values.yaml
+          sed -i.bak "s|tag:.*|tag: $TAG|" todo-chart/values.yaml
+          
+          echo "Updated values.yaml:"
           cat todo-chart/values.yaml
 
       - name: Commit and push updated values.yaml
