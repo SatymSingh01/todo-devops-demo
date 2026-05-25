@@ -1,8 +1,8 @@
 replicaCount: 5
 
-image:
+image: ghcr.io/SatymSingh01/todo-devops-demo/todo-app
   repository: localhost:32000/todo-app
-  tag: latest
+  tag: main ghcr.io/satymsingh01/todo-devops-demo/todo-app
   pullPolicy: IfNotPresent
 
 service:
