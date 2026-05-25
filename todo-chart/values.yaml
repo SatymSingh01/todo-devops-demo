@@ -2,7 +2,7 @@ replicaCount: 5
 
 image:
   repository: localhost:32000/todo-app
-  tag: latest
+  tag: a5c81c18fd76175e89125af44862b2ef0bee8424
   pullPolicy: IfNotPresent
 
 service:
