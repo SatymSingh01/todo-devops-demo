@@ -20,7 +20,7 @@ def get_todos():
 @app.route('/', methods=['GET'])
 def home():
     return jsonify({
-        "message": "Todo API running - v1.0",
+        "message": "Todo API running - v1.2",
         "endpoints": {
             "health": "/health",
             "todos": "/todos"
