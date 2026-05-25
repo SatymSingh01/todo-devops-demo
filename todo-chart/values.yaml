@@ -2,7 +2,7 @@ replicaCount: 5
 
 image: ghcr.io/SatymSingh01/todo-devops-demo/todo-app
   repository: localhost:32000/todo-app
-  tag: main ghcr.io/satymsingh01/todo-devops-demo/todo-app
+  tag: 2617a91a0a96c62219aed375bc09a06207ac719f
   pullPolicy: IfNotPresent
 
 service:
